@@ -33,7 +33,7 @@ public class Launcher {
 //            network.addNode(lamp2);
             
             ZWSQLLogger logger = new ZWSQLLogger();
-            args = new String[]{"30"};
+            args = new String[]{"20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"};
             Map<Integer, ZWEZMotionSensor> sensors = new HashMap<Integer, ZWEZMotionSensor>();
             if (args.length > 0) {
                 for(String s : args) {
