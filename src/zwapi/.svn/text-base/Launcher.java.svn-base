@@ -1,0 +1,60 @@
+package zwapi;
+
+import zwapi.nodes.ZWEZMotionSensor;
+import zwapi.nodes.ZWLampModule;
+import zwapi.nodes.ZWNetworkController;
+import zwapi.nodes.ZWSensor;
+import java.io.IOException;
+
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author David Lemvigh
+ * @author Andreas Møller
+ */
+public class Launcher {
+
+    public static void main(String[] args) {
+
+        ZWNetworkController trickle;
+        ZWNetwork network;
+        try {
+            trickle = new ZWNetworkController((byte) 25, "");
+            network = new ZWNetwork(trickle);
+
+            ZWLampModule lamp = new ZWLampModule(26);
+            network.addNode(lamp);
+
+            ZWSensor sensor = new ZWEZMotionSensor(49);
+            network.addNode(sensor);
+
+//            lamp.setLevel(20);
+            sensor.getConfigurationParameter((byte) 2);
+//            sensor.getAssociation((byte) 6);
+            
+//            ZWFrame zm = new ZWFrame(ZWFrame.REQUEST, (byte) 0x53, null);
+//            trickle.send(zm.getBytes());
+//            trickle.getVersion();
+//            trickle.sendNodeInfo();
+
+
+        } catch (Exception ex) {
+            System.err.println("Could open connection to Network Controller");
+            ex.printStackTrace();
+            System.exit(-1);
+        }
+
+        try {
+            System.in.read();
+            System.err.println("Program terminated");
+            System.exit(0);
+        } catch (IOException ex) {
+            System.err.println("Failed waiting for input, ending program now!");
+            System.exit(-2);
+        }
+
+    }
+}

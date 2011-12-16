@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<!--
+Reference this overview.html
+by specifying it in an ant task, like:
+ <javadoc
+  ...
+  overview="${path-to-overview.html}/overview.html"
+/>
+
+Alternative specify in Project|Properties, Build|Documenting, Additional Javadoc Options
+-overview=${basedir}/${src.dir}/zwapi/overview.html
+-->
+<html>
+    <body>
+        <div style="font-size: 20pt; font-weight: bold; text-align: center">Java API for Z-Wave communication</div>
+        <p>
+            This api is used to model and control nodes in a Z-Wave network. Basic network setup,
+            inclusion/exclusion of nodes isn't currently handled by the API. This should be handled using which ever Z-Wave inclusion
+            controller happens to be handy at the time. To model the network the node ID of all nodes in the network must be known.
+        </p>
+        <p>
+            A code example of modeling a Z-Wave network with a single node:
+        <pre>
+        {@code
+        ZWNetworkController controller = new ZWController(nodeID, portIdentifier);
+        ZWNetwork network = new ZWNetwork(controller);
+
+        ZWNode aNode = ...
+        network.addNode(aNode);
+        }
+        </pre>
+        </p>
+        <p>
+            Control operation are then be called on the node objects, which then use the
+            network controller to send the message to the physical Z-Wave device. An event based
+            listener recieves reports from the network, and notifies the model by firing an event
+            on the corrosponding node object.
+        </p>
+        <p>
+            Sensors should can have association to directly control the lamps, when motion is detected. Sensors should also
+            have the network controller associated, so sensor event can be logged. Should it be
+            necesary the sensor events recieved though the API could be used to trigger new actions. This practice of
+            centrallized communication should be avoided if possible, in order to comply with Z-Wave standards.
+        </p>
+        <p>During the development the api was tested using a TrickleStar Z-Wave dongle, but any Z-Wave serial controller should work.</p>
+    </body>
+</html>

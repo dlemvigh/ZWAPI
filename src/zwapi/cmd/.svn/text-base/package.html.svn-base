@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+    <head>
+<!--
+-->
+    </head>
+    <body bgcolor="white">
+        <!--
+        ##### THIS IS THE TEMPLATE FOR THE PACKAGE DOC COMMENTS. #####
+        ##### TYPE YOUR PACKAGE COMMENTS HERE.  BEGIN WITH A     #####
+        ##### ONE-SENTENCE SUMMARY STARTING WITH A VERB LIKE:    #####
+        -->
+        <a name="doc.Description"></a>
+        This package is used by the z-wave api, and should not be accessed by the end user.
+        
+        <div align="center">
+            <a href="#doc.Intro">[Introduction]</a>
+            <a href="#doc.Usage">[Usage]</a>
+            <a href="#doc.RelatedDocumentation">[Related Documentation]</a>
+        </div>
+        
+        <a name="doc.Introduction"></a>
+        <h2>Introduction</h2>
+        <a href="#doc.Description">[Description]</a>
+        <p>
+           The z-wave api cmd package is used by the z.wave api to decompose z-wave messages.
+        </p>
+        
+        <a name="doc.Usage"></a>
+        <h2>Usage</h2>
+        <a href="#doc.Description">[Description]</a>
+        <p>
+            This package is only used by the z-wave api, and should not be used by the end user.
+        </p>
+        
+        <a name="doc.RelatedDocumentation"></a>
+        <h2>Related Documentation</h2>
+        <a href="#doc.Description">[Description]</a>
+        <p>
+        </p>
+        <ul>
+            <!--
+            ##### REFER TO NON-SPEC DOCUMENTATION HERE #####
+            -->
+            <li><a href="#">NON-SPEC DOCUMENTATION HERE</a>
+        </ul>
+        
+        <!-- Put @see and @since tags down here. -->
+        
+    </body>
+</html>

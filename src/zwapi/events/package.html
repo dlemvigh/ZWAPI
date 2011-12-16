@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+    <head>
+<!--
+-->
+    </head>
+    <body bgcolor="white">
+        <!--
+        ##### THIS IS THE TEMPLATE FOR THE PACKAGE DOC COMMENTS. #####
+        ##### TYPE YOUR PACKAGE COMMENTS HERE.  BEGIN WITH A     #####
+        ##### ONE-SENTENCE SUMMARY STARTING WITH A VERB LIKE:    #####
+        -->
+        <a name="doc.Description"></a>
+        This package contains the z-wave api event class, and all z-wave api event listeners.
+        
+        <div align="center">
+            <a href="#doc.Intro">[Introduction]</a>
+            <a href="#doc.Usage">[Usage]</a>
+            <a href="#doc.RelatedDocumentation">[Related Documentation]</a>
+        </div>
+        
+        <a name="doc.Introduction"></a>
+        <h2>Introduction</h2>
+        <a href="#doc.Description">[Description]</a>
+        <p>
+           This package contains the z-wave api event class, and all z-wave api event listeners, used when receiving
+           messages from the z-wave network.
+        </p>
+        
+        <a name="doc.Usage"></a>
+        <h2>Usage</h2>
+        <a href="#doc.Description">[Description]</a>
+        <p>
+            Because of the time delay between a request and response in any wireless network,and javas 
+            inefficiency when handling callback functions, all incomming z-wave messages is converted into z-wave events.
+            The z-wave api will trigger an event based on the command class of the message,
+            in the node object related to the node that sent the message.
+            If for example a z-wave node with an id 1 sends a BASIC_SET from the command class COMMAND_CLASS_BASIC,
+            The ZWNode object with id 1 will fire an event that will be picked up by the ZWEventListener, and the ZWBasicListener.
+        </p>
+        
+        <a name="doc.RelatedDocumentation"></a>
+        <h2>Related Documentation</h2>
+        <a href="#doc.Description">[Description]</a>
+        <p>
+            See individual listeners for more information...
+        </p>
+        <ul>
+            <!--
+            ##### REFER TO NON-SPEC DOCUMENTATION HERE #####
+            -->
+            <li><a href="#">NON-SPEC DOCUMENTATION HERE</a>
+        </ul>
+        
+        <!-- Put @see and @since tags down here. -->
+        
+    </body>
+</html>
