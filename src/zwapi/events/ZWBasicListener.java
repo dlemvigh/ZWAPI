@@ -1,9 +1,10 @@
 package zwapi.events;
 
 import java.util.EventListener;
+
 /**
  * The listener interface for recieving ZWBasicEvents
- * @author andreasmller
+ * @author Andreas Møller
  */
 public interface ZWBasicListener extends EventListener {
     /**

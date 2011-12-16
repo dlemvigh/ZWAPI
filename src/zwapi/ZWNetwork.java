@@ -137,20 +137,20 @@ public class ZWNetwork implements SerialPortEventListener {
                         //TODO msg done
 //                        System.out.println("== message recieved ==\n" + message);
                         networkController.sendAck();
-
+                        ZWCmdClass cmd;
                         switch (message.command) {
                             case 0x15: //getVersion response
-                                ZWEvent event = new ZWEvent(networkController,(byte)0x86, (byte) 0x12,message.payload);
+                                ZWEvent event = new ZWEvent(networkController,(byte)0x86, (byte) 0x12, message.payload);
                                 networkController.fireZWVersionEvent(event);
                                 break;
                             case 0x04: // application command
-                                ZWCmdClass cmd = ZWCmdClass.commandHandler(message.payload);
+                                cmd = ZWCmdClass.commandHandler(message.payload);
                                 fireEvent(cmd);
                                 
                                 break;
                             case 0x49: // application slave update (unsolicited node information frame)
-                                System.out.println("broadcast: " + message.payload[1]);
-                                //ignore for now
+                                cmd = ZWCmdClass.commandHandler(message.payload);
+                                fireEvent(cmd);
                                 break;
                         }
 
@@ -198,6 +198,9 @@ public class ZWNetwork implements SerialPortEventListener {
                 break;
             case (byte)0x86: // version
                 nodes.get((int) cmd.node).fireZWVersionEvent(event);
+                break;
+            case (byte)0x04: // node info broadcast (unverified)
+                nodes.get((int) cmd.node).fireZWNodeInfoEvent(event);
                 break;
 
         }

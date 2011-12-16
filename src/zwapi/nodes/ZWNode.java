@@ -1,13 +1,10 @@
 package zwapi.nodes;
 
-import zwapi.events.ZWBasicListener;
-import zwapi.events.ZWEvent;
-import zwapi.events.ZWEventListener;
+import zwapi.events.*;
 import javax.swing.event.EventListenerList;
 import zwapi.NoAssociatedNetworkException;
 import zwapi.ZWFrame;
 import zwapi.ZWNetwork;
-import zwapi.events.ZWVersionListener;
 
 /**
  * The basic node class used to model a node in the z-wave network
@@ -122,6 +119,28 @@ public class ZWNode {
             if (l[i] == ZWBasicListener.class) {
                 // pass the event to the listeners event dispatch method
                 ((ZWBasicListener) l[i + 1]).ZWBasicEventOccurred(event);
+            }
+        }
+        fireZWEvent(event);
+    }
+    public void addZWNodeInfoListener(ZWNodeInfoListener listener) {
+        listeners.add(ZWNodeInfoListener.class, listener);
+    }
+    public void removeZWNodeInfoListener(ZWNodeInfoListener listener) {
+        listeners.remove(ZWNodeInfoListener.class, listener);
+    }
+    /**
+     * fires a ZWBasicEvent
+     * @param event
+     */
+    public void fireZWNodeInfoEvent(ZWEvent event) {
+        Object[] l = listeners.getListenerList();
+        // loop through each listener and pass on the event if needed
+        int numListeners = l.length;
+        for (int i = 0; i < numListeners; i += 2) {
+            if (l[i] == ZWBasicListener.class) {
+                // pass the event to the listeners event dispatch method
+                ((ZWNodeInfoListener) l[i + 1]).ZWNodeInfoEventOccurred(event);
             }
         }
         fireZWEvent(event);

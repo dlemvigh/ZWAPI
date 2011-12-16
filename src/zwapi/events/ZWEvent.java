@@ -10,7 +10,7 @@ import zwapi.nodes.ZWNode;
  * @author David Emil Lemvigh
  */
 public class ZWEvent extends EventObject{
-    protected byte commmandClass,command;
+    protected byte commmandClass, command;
     protected byte[] data;
 
     /**

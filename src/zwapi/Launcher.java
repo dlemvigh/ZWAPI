@@ -31,9 +31,9 @@ public class Launcher {
 //
 //            ZWLampModule lamp2 = new ZWLampModule(4);
 //            network.addNode(lamp2);
-/*            
+            
             ZWSQLLogger logger = new ZWSQLLogger();
-            args = new String[]{"20", "21", "27"};
+            args = new String[]{"30"};
             Map<Integer, ZWEZMotionSensor> sensors = new HashMap<Integer, ZWEZMotionSensor>();
             if (args.length > 0) {
                 for(String s : args) {
@@ -55,12 +55,12 @@ public class Launcher {
                 network.addNode(sensor21);
                 sensor21.addZWBasicListener(logger);            
             }
-*/            
-            ZWEZMotionSensor sensor = new ZWEZMotionSensor(28);
-            network.addNode(sensor);
+            
+//            ZWEZMotionSensor sensor = new ZWEZMotionSensor(30);
+//            network.addNode(sensor);
             
 //            sensor.setAssociation((byte) 1, (byte) 1);
-            sensor.setAssociation((byte) 16, (byte) 2);
+//            sensor.setAssociation((byte) 16, (byte) 2);
 
 //            sensor.removeAssociation((byte) 1, (byte) 1);
 //            sensor.removeAssociation((byte) 42, (byte) 4);
@@ -79,8 +79,8 @@ public class Launcher {
 //            trickle.sendNodeInfo();
 //            lamp.off();
 
-           	Thread.sleep(1000);
-           	System.exit(0);
+//           	Thread.sleep(1000);
+//           	System.exit(0);
 
 //            ZWSensor sensor = new ZWEZMotionSensor(49);
 //            network.addNode(sensor);
