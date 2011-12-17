@@ -20,7 +20,7 @@ public class ZWEvent extends EventObject{
      * @param command
      * @param data
      */
-    public ZWEvent(ZWNode source, byte commandClass, byte command,byte [] data){
+    public ZWEvent(ZWNode source, byte commandClass, byte command, byte [] data){
         super(source);
         this.command = command;
         this.commmandClass = commandClass;

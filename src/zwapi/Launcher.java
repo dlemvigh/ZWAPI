@@ -18,13 +18,13 @@ public class Launcher {
     throws InterruptedException
     {
 
-        ZWNetworkController trickle;
+        ZWNetworkController zstick;
         ZWNetwork network;
         try {
-            trickle = new ZWNetworkController((byte) 16, "");
-            //aeon = new ZWNetworkController((byte) 1, "");
+//            zstick = new ZWNetworkController((byte) 16, "");//trickle
+            zstick = new ZWNetworkController((byte) 1, "/dev/ttyUSB1");//aeon
             
-            network = new ZWNetwork(trickle);
+            network = new ZWNetwork(zstick);
 
 //            ZWLampModule lamp = new ZWLampModule(13);
 //            network.addNode(lamp);
@@ -33,7 +33,7 @@ public class Launcher {
 //            network.addNode(lamp2);
             
             ZWSQLLogger logger = new ZWSQLLogger();
-            args = new String[]{"20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30"};
+            args = new String[]{"20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "4"};
             Map<Integer, ZWEZMotionSensor> sensors = new HashMap<Integer, ZWEZMotionSensor>();
             if (args.length > 0) {
                 for(String s : args) {

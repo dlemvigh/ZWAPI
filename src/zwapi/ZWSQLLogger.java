@@ -74,7 +74,7 @@ public class ZWSQLLogger implements ZWBasicListener, ZWNodeInfoListener {
                     + "FROM switch_events " + "WHERE id = " + switchId
                     + " " + "ORDER BY diff " + "LIMIT 1");
          
-            if (result.next() && result.getLong("diff") < 5) {
+            if (result.next() && result.getLong("diff") < 3) {
                 String query = String.format("UPDATE switch_events SET status = 0 WHERE id = %d AND timestamp = '%s'", 
                         switchId, result.getTimestamp("timestamp").toString());
                 System.out.println("off!");
